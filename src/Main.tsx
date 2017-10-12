@@ -1,21 +1,19 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
 import Dropzone from "react-dropzone";
-import styed from "styled-components";
+import styled, { ThemedStyledProps } from "styled-components";
 
-import "./Style.css";
+let image = require("./images/dropbox-logo.png");
 
 type Props = {
     className?: string
 }
 
-type State = {}
+type MyThemes = ThemedStyledProps<Props, Dropzone>
 
-const MyDrop = styed(Dropzone) `
+const MyZone = styled(Dropzone) `
     width: 100%;
     height: 100%;
-    background-color: #139033;
-    padding: 20px;
 `;
 
 export class App extends React.Component<Props, {}> {
@@ -27,11 +25,17 @@ export class App extends React.Component<Props, {}> {
         console.log(e);
     }
 
+    onDragEnger() {
+
+    }
+
     render() {
         return (
-            <MyDrop onDrop={this.onDrop} disableClick>
+            <MyZone onDragEnter={this.onDragEnger}
+                onDrop={this.onDrop}
+                disableClick>
                 <h1>Drop Here</h1>
-            </MyDrop>
+            </MyZone>
         );
     }
 }
