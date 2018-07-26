@@ -1,3 +1,3 @@
-## Drop Zone Explore
+## Drop Zone
 
 - https://react-dropzone.js.org/#full-screen-dropzone
